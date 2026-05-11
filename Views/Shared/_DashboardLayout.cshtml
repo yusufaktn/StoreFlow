@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+@await Component.InvokeAsync("_HeadDashboardComponentPartial")
+
+<body>
+    <div class="container-scroller">
+        @await Component.InvokeAsync("_NavbarDashboardComponenetPartial")
+        <div class="container-fluid page-body-wrapper">
+            @await Component.InvokeAsync("_TemaSettingsWrapperDashboardComponentPartial")
+            @await Component.InvokeAsync("_RightSideBarDashboardComponentPartial")
+            @await Component.InvokeAsync("_SidebarDashboardComponentPartial")
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    @RenderBody()
+                </div>
+                <!-- content-wrapper ends -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Telif Hakkı © 2018. Tüm hakları saklıdır.</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hassas şekilde yapılmış <i class="far fa-heart text-danger"></i></span>
+                    </div>
+                </footer>
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <script src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/vendors/js/vendor.bundle.base.js"></script>
+    <script src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/vendors/js/vendor.bundle.addons.js"></script>
+    <script src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/off-canvas.js"></script>
+    <script src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/hoverable-collapse.js"></script>
+    <script src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/misc.js"></script>
+    <script src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/settings.js"></script>
+    <script src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/todolist.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

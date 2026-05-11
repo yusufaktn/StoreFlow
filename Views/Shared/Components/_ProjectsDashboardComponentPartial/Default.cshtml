@@ -1,0 +1,48 @@
+@model List<StoreFlow.Entity.Project>
+@using StoreFlow.Entity.Enum
+
+<div class="col-md-5 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">
+                <i class="fas fa-rocket"></i>
+                Projeler
+            </h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Atanmış Kişi</th>
+                            <th>Proje Adı</th>
+                            <th>Öncelik</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var project in Model)
+                        {
+                            var badgeClass = project.Priority switch
+                            {
+                                ProjectPriority.High => "badge-danger",
+                                ProjectPriority.Medium => "badge-warning",
+                                _ => "badge-success"
+                            };
+                            var priorityText = project.Priority switch
+                            {
+                                ProjectPriority.High => "Yüksek",
+                                ProjectPriority.Medium => "Orta",
+                                _ => "Düşük"
+                            };
+                            <tr>
+                                <td>@project.AssignedPerson</td>
+                                <td>@project.ProjectName</td>
+                                <td>
+                                    <label class="badge @badgeClass badge-pill">@priorityText</label>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

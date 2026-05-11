@@ -1,0 +1,149 @@
+﻿<div id="right-sidebar" class="settings-panel">
+    <i class="settings-close fa fa-times"></i>
+    <ul class="nav nav-tabs" id="setting-panel" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">YAPILACAKLAR LİSTESİ</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">SOHBETLER</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="setting-content">
+        <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
+            <div class="add-items d-flex px-3 mb-0">
+                <form class="form w-100">
+                    <div class="form-group d-flex">
+                        <input type="text" class="form-control todo-list-input" placeholder="Yapılacak ekle">
+                        <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task-todo">Ekle</button>
+                    </div>
+                </form>
+            </div>
+            <div class="list-wrapper px-3">
+                <ul class="d-flex flex-column-reverse todo-list">
+                    <li>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="checkbox" type="checkbox">
+                                Saat 15.00'te ekip değerlendirme toplantısı
+                            </label>
+                        </div>
+                        <i class="remove fa fa-times-circle"></i>
+                    </li>
+                    <li>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="checkbox" type="checkbox">
+                                Sunum için hazırlık yap
+                            </label>
+                        </div>
+                        <i class="remove fa fa-times-circle"></i>
+                    </li>
+                    <li>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="checkbox" type="checkbox">
+                                Bugün teslim edilmesi gereken düşük öncelikli tüm talepleri çöz
+                            </label>
+                        </div>
+                        <i class="remove fa fa-times-circle"></i>
+                    </li>
+                    <li class="completed">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="checkbox" type="checkbox" checked>
+                                Gelecek hafta için toplantı planla
+                            </label>
+                        </div>
+                        <i class="remove fa fa-times-circle"></i>
+                    </li>
+                    <li class="completed">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="checkbox" type="checkbox" checked>
+                                Proje değerlendirmesi
+                            </label>
+                        </div>
+                        <i class="remove fa fa-times-circle"></i>
+                    </li>
+                </ul>
+            </div>
+            <div class="events py-4 border-bottom px-3">
+                <div class="wrapper d-flex mb-2">
+                    <i class="fa fa-times-circle text-primary mr-2"></i>
+                    <span>11 Şub 2018</span>
+                </div>
+                <p class="mb-0 font-weight-thin text-gray">Bileşen sayfası oluşturma</p>
+                <p class="text-gray mb-0">JavaScript tabanlı bir uygulama geliştir</p>
+            </div>
+            <div class="events pt-4 px-3">
+                <div class="wrapper d-flex mb-2">
+                    <i class="fa fa-times-circle text-primary mr-2"></i>
+                    <span>7 Şub 2018</span>
+                </div>
+                <p class="mb-0 font-weight-thin text-gray">Alisa ile toplantı</p>
+                <p class="text-gray mb-0 ">Sarah Graves'i ara</p>
+            </div>
+        </div>
+        <!-- To do section tab ends -->
+        <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+            <div class="d-flex align-items-center justify-content-between border-bottom">
+                <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Arkadaşlar</p>
+                <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal">Tümünü Gör</small>
+            </div>
+            <ul class="chat-list">
+                <li class="list active">
+                    <div class="profile"><img src="images/faces/face1.jpg" alt="image"><span class="online"></span></div>
+                    <div class="info">
+                        <p>Thomas Douglas</p>
+                        <p>Müsait</p>
+                    </div>
+                    <small class="text-muted my-auto">19 dk</small>
+                </li>
+                <li class="list">
+                    <div class="profile"><img src="images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
+                    <div class="info">
+                        <div class="wrapper d-flex">
+                            <p>Catherine</p>
+                        </div>
+                        <p>Uzakta</p>
+                    </div>
+                    <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+                    <small class="text-muted my-auto">23 dk</small>
+                </li>
+                <li class="list">
+                    <div class="profile"><img src="images/faces/face3.jpg" alt="image"><span class="online"></span></div>
+                    <div class="info">
+                        <p>Daniel Russell</p>
+                        <p>Müsait</p>
+                    </div>
+                    <small class="text-muted my-auto">14 dk</small>
+                </li>
+                <li class="list">
+                    <div class="profile"><img src="images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
+                    <div class="info">
+                        <p>James Richardson</p>
+                        <p>Uzakta</p>
+                    </div>
+                    <small class="text-muted my-auto">2 dk</small>
+                </li>
+                <li class="list">
+                    <div class="profile"><img src="images/faces/face5.jpg" alt="image"><span class="online"></span></div>
+                    <div class="info">
+                        <p>Madeline Kennedy</p>
+                        <p>Müsait</p>
+                    </div>
+                    <small class="text-muted my-auto">5 dk</small>
+                </li>
+                <li class="list">
+                    <div class="profile"><img src="images/faces/face6.jpg" alt="image"><span class="online"></span></div>
+                    <div class="info">
+                        <p>Sarah Graves</p>
+                        <p>Müsait</p>
+                    </div>
+                    <small class="text-muted my-auto">47 dk</small>
+                </li>
+            </ul>
+        </div>
+        <!-- chat tab ends -->
+    </div>
+</div>

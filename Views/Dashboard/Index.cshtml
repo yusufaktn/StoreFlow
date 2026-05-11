@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "_DashboardLayout";
+}
+
+<div class="page-header">
+    <h3 class="page-title">
+        Kontrol Paneli
+    </h3>
+</div>
+@await Component.InvokeAsync("_CardStatisticsDashboardComponentPartial")
+@await Component.InvokeAsync("_ChartDashboardComponentPartial")
+<div class="row">
+    @await Component.InvokeAsync("_SalesStatusDashboardComponentPartial")
+    @await Component.InvokeAsync("_ActivitiesChartDashboardComponentPartial")
+    @await Component.InvokeAsync("_DailySalesDashboardComponentPartial")
+</div>
+@await Component.InvokeAsync("_InboxDashboardComponentPartial")
+<div class="row">
+    @await Component.InvokeAsync("_SalesDataDashboardComponenetPartial")
+    @await Component.InvokeAsync("_CalendarDashboardComponentPartial")
+</div>
+<div class="row">
+    @await Component.InvokeAsync("_TodosDashboardComponentPartial")
+    @await Component.InvokeAsync("_ProjectsDashboardComponentPartial")
+</div>
+<div class="row">
+    @await Component.InvokeAsync("_SocialStatsDashboardComponentPartial")
+</div>
+
+@section Scripts {
+    <script src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/dashboard.js"></script>
+}
