@@ -1,0 +1,32 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Kategori Güncelleme</h4>
+            <form class="forms-sample" asp-action="UpdateCategory" method="post">        
+                <div class="form-group">
+                    <input type="hidden" asp-for="CategoryId">
+                    <label for="exampleInputName1">Kategori Adı</label>
+                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Kategori Adı" asp-for="CategoryName">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Kategori Durumu</label>
+                    <select class="form-control" asp-for="Status">
+                        <option value="">Durum Seçiniz</option>
+                        <option value="true">Aktif</option>
+                        <option value="false">Pasif</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary mr-2">Oluştur</button>
+                <a href="@Url.Action("Index", "Category")" class="btn btn-light">İptal</a>
+
+            </form>
+        </div>
+    </div>
+</div>

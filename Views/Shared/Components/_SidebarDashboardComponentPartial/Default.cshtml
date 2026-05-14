@@ -16,13 +16,13 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="Dashboard/Index">
+            <a class="nav-link" asp-controller ="Dashboard" asp-action="Index">
                 <i class="fa fa-home menu-icon"></i>
                 <span class="menu-title">Kontrol Paneli</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="Statistics/Index">
+            <a class="nav-link" asp-controller="Statistics" asp-action="Index"> @* Asp.net core bizim için doğru adresi oluşturu karışıklık olmaz. *@
                 <i class="fa fa-puzzle-piece menu-icon"></i>
                 <span class="menu-title">İstatistikler</span>
             </a>
@@ -48,7 +48,7 @@
         </li> *@
 
         <li class="nav-item">
-            <a class="nav-link" href="pages/documentation.html">
+            <a class="nav-link" asp-controller="Category" asp-action="Index">
                 <i class="far fa-file-alt menu-icon"></i>
                 <span class="menu-title">Kategoriler</span>
             </a>

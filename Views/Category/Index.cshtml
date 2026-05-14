@@ -1,0 +1,63 @@
+﻿@model List<Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Kategoriler</h4>
+            <p class="card-description">
+                <code>Kategorilerinizi buradan yönetebilirsiniz.</code>
+            </p>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Kategori Id</th>
+                            <th>Kategori Adı</th>
+                            <th>Durum</th>
+                            <th>Aksiyon</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var i in Model)
+                        {
+                            <tr>
+                                <td>@i.CategoryId</td>
+                                <td>@i.CategoryName</td>
+                                @if (i.Status == true)
+                                {
+                                    <td>
+                                        <label class="badge badge-outline-success badge-pill">Aktif Kategori</label>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <label class="badge badge-outline-danger badge-pill">Pasif Kategori</label>
+                                    </td>
+                                }
+
+                                <td>
+                                    <a href="/Category/DeleteCategory/@i.CategoryId" class="btn btn-danger">Sil</a>
+                                    <a href="/Category/UpdateCategory/@i.CategoryId" class="btn btn-inverse-success">Güncelle</a>
+
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+           <div class="row">
+                <a href="Category/CreateCategory" class="btn btn-primary">Yeni Kategori Ekle</a>
+           </div>
+            
+
+        </div>
+    </div>
+</div>
