@@ -1,44 +1,57 @@
 ﻿@model List<Order>
 
 <div class="col-md-8 grid-margin stretch-card">
-    <div class="card">
+    <div class="card shadow-sm border-0">
         <div class="card-body">
             <h4 class="card-title">
-                <i class="fas fa-table"></i>
-                Satış Verileri
+                <i class="fas fa-list-ul mr-2 text-primary"></i>
+                Son Siparişler
             </h4>
             <div class="table-responsive">
-                <table class="table">
+                <table class="table table-hover">
                     <thead>
                         <tr>
                             <th>Müşteri</th>
-                            <th>Sipariş Id</th>
-                            <th>Toplam Ödeme</th>
+                            <th>Sipariş No</th>
+                            <th>Toplam Tutar</th>
                             <th>Durum</th>
                         </tr>
                     </thead>
                     <tbody>
-
                         @foreach(var order in Model)
                         {
                             <tr>
-                                <td class="font-weight-bold">
-                                    @order.Customer.FirstName @order.Customer.LastName
-                                </td>
-                                <td class="text-muted">
-                                    @order.OrderId
-                                </td>
                                 <td>
-                                    @order.TotalPrice
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-light p-2 rounded mr-3">
+                                            <i class="fas fa-user text-muted"></i>
+                                        </div>
+                                        <span class="font-weight-bold">@order.Customer.FirstName @order.Customer.LastName</span>
+                                    </div>
                                 </td>
+                                <td class="text-muted">#@order.OrderId</td>
+                                <td class="font-weight-bold text-dark">@order.TotalPrice.ToString("N2") TL</td>
                                 <td>
-                                    <label class="badge badge-success badge-pill">@order.OrderStatus</label>
+                                    @if (order.OrderStatus == StoreFlow.Entity.Enum.OrderStatus.Pending)
+                                    {
+                                        <label class="badge badge-warning badge-pill">Beklemede</label>
+                                    }
+                                    else if (order.OrderStatus == StoreFlow.Entity.Enum.OrderStatus.Shipped || order.OrderStatus == StoreFlow.Entity.Enum.OrderStatus.Shipped)
+                                    {
+                                        <label class="badge badge-success badge-pill">Tamamlandı</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="badge badge-danger badge-pill">İptal</label>
+                                    }
                                 </td>
                             </tr>
                         }
-                        
                     </tbody>
                 </table>
+            </div>
+            <div class="mt-4 text-right">
+                <a href="/Order/Index" class="btn btn-link p-0 text-primary">Tüm Siparişleri Gör →</a>
             </div>
         </div>
     </div>

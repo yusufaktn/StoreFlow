@@ -1,55 +1,42 @@
 ﻿<div class="row grid-margin">
     <div class="col-12">
-        <div class="card card-statistics">
+        <div class="card card-statistics border-0 shadow-sm">
             <div class="card-body">
                 <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
-                    <div class="statistics-item">
-                        <p>
-                            <i class="icon-sm fa fa-user mr-2"></i>
+                    <div class="statistics-item text-center text-md-left">
+                        <p class="text-muted mb-2">
+                            <i class="icon-sm fas fa-users mr-2 text-primary"></i>
                             Toplam Müşteri
                         </p>
-                        <h2>@ViewBag.CustomerTotalCount</h2>
-                        <label class="badge badge-outline-success badge-pill">%2.7 artış</label>
+                        <h2 class="font-weight-bold">@ViewBag.CustomerTotalCount</h2>
                     </div>
-                    <div class="statistics-item">
-                        <p>
-                            <i class="icon-sm fas fa-hourglass-half mr-2"></i>
-                            Toplam Ürün Sayısı
+                    <div class="statistics-item text-center text-md-left">
+                        <p class="text-muted mb-2">
+                            <i class="icon-sm fas fa-box mr-2 text-success"></i>
+                            Toplam Ürün
                         </p>
-                        <h2>@ViewBag.TotalProductCount</h2>
-                        <label class="badge badge-outline-danger badge-pill">%30 azalış</label>
+                        <h2 class="font-weight-bold">@ViewBag.TotalProductCount</h2>
                     </div>
-                    <div class="statistics-item">
-                        <p>
-                            <i class="icon-sm fas fa-cloud-download-alt mr-2"></i>
+                    <div class="statistics-item text-center text-md-left">
+                        <p class="text-muted mb-2">
+                            <i class="icon-sm fas fa-layer-group mr-2 text-info"></i>
                             Toplam Kategori
                         </p>
-                        <h2>@ViewBag.CategoryTotalCount</h2>
-                        <label class="badge badge-outline-success badge-pill">%12 artış</label>
+                        <h2 class="font-weight-bold">@ViewBag.CategoryTotalCount</h2>
                     </div>
-                    <div class="statistics-item">
-                        <p>
-                            <i class="icon-sm fas fa-check-circle mr-2"></i>
-                            Ortalama Müşteri Bakiyesi
-                        </p>
-                        <h2>@ViewBag.CustomerBalanceAvg</h2>
-                        <label class="badge badge-outline-success badge-pill">%57 artış</label>
-                    </div>
-                    <div class="statistics-item">
-                        <p>
-                            <i class="icon-sm fas fa-chart-line mr-2"></i>
+                    <div class="statistics-item text-center text-md-left">
+                        <p class="text-muted mb-2">
+                            <i class="icon-sm fas fa-shopping-basket mr-2 text-warning"></i>
                             Toplam Sipariş
                         </p>
-                        <h2>@ViewBag.TotalOrderCount</h2>
-                        <label class="badge badge-outline-success badge-pill">%10 artış</label>
+                        <h2 class="font-weight-bold">@ViewBag.TotalOrderCount</h2>
                     </div>
-                    <div class="statistics-item">
-                        <p>
-                            <i class="icon-sm fas fa-circle-notch mr-2"></i>
-                            Toplam Para
+                    <div class="statistics-item text-center text-md-left">
+                        <p class="text-muted mb-2">
+                            <i class="icon-sm fas fa-wallet mr-2 text-danger"></i>
+                            Toplam Ciro
                         </p>
-                        <h2>@ViewBag.TotalMoney</h2>
-                        <label class="badge badge-outline-danger badge-pill">%16 azalış</label>
+                        <h2 class="font-weight-bold">@ViewBag.TotalMoney</h2>
                     </div>
                 </div>
             </div>

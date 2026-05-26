@@ -4,27 +4,32 @@
 
 <div class="page-header">
     <h3 class="page-title">
-        Kontrol Paneli
+        <i class="fa fa-home mr-2"></i>Kontrol Paneli Özeti
     </h3>
 </div>
+
+@* Üst İstatistik Özetleri *@
 @await Component.InvokeAsync("_CardStatisticsDashboardComponentPartial")
+
+@* Grafik Panelleri *@
 @await Component.InvokeAsync("_ChartDashboardComponentPartial")
+
 <div class="row">
-    @await Component.InvokeAsync("_SalesStatusDashboardComponentPartial")
-    @await Component.InvokeAsync("_ActivitiesChartDashboardComponentPartial")
-    @await Component.InvokeAsync("_DailySalesDashboardComponentPartial")
-</div>
-@await Component.InvokeAsync("_InboxDashboardComponentPartial")
-<div class="row">
+    @* Satış Durumu ve Son Satış Verileri *@
     @await Component.InvokeAsync("_SalesDataDashboardComponenetPartial")
-    @await Component.InvokeAsync("_CalendarDashboardComponentPartial")
+    @await Component.InvokeAsync("_SalesStatusDashboardComponentPartial")
 </div>
+
 <div class="row">
+    @* Yapılacaklar ve Proje Durumları *@
     @await Component.InvokeAsync("_TodosDashboardComponentPartial")
     @await Component.InvokeAsync("_ProjectsDashboardComponentPartial")
 </div>
+
 <div class="row">
-    @await Component.InvokeAsync("_SocialStatsDashboardComponentPartial")
+    @* Aktiviteler ve Son Eklenen Ürünler *@
+    @await Component.InvokeAsync("_ActivitiesChartDashboardComponentPartial")
+    @await Component.InvokeAsync("_CalendarDashboardComponentPartial")
 </div>
 
 @section Scripts {

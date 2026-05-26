@@ -1,0 +1,65 @@
+@model StoreFlow.Entity.Order
+@{
+    ViewData["Title"] = "Yeni Sipariş";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Sipariş Oluştur</h4>
+            <p class="card-description">Müşteri ve ürün bilgilerini girerek sipariş oluşturun.</p>
+            
+            <form class="forms-sample" asp-action="CreateOrder" method="post">
+                
+                @* Müşteri Seçimi *@
+                <div class="form-group">
+                    <label>Müşteri Seçin</label>
+                    <select class="form-control" asp-for="CustomerId" asp-items="ViewBag.CustomerList">
+                        <option value="">-- Müşteri Seçiniz --</option>
+                    </select>
+                </div>
+
+                @* Ürün Seçimi *@
+                <div class="form-group">
+                    <label>Ürün Seçin</label>
+                    <select class="form-control" name="ProductId" asp-items="ViewBag.ProductList">
+                        <option value="">-- Ürün Seçiniz --</option>
+                    </select>
+                </div>
+
+                @* Ürün Miktarı *@
+                <div class="form-group">
+                    <label>Adet</label>
+                    <input type="number" name="Quantity" class="form-control" placeholder="Miktar giriniz" value="1">
+                </div>
+
+                @* Ödeme Yöntemi *@
+                <div class="form-group">
+                    <label>Ödeme Yöntemi</label>
+                    <select class="form-control" asp-for="PaymentMethod">
+                        <option value="Cash">Nakit</option>
+                        <option value="CreditCard">Kredi Kartı</option>
+                        <option value="Transfer">Havale/EFT</option>
+                    </select>
+                </div>
+
+                @* Sipariş Notu *@
+                <div class="form-group">
+                    <label>Sipariş Notu</label>
+                    <textarea class="form-control" asp-for="Notes" rows="3"></textarea>
+                </div>
+
+                @* Teslimat Adresi *@
+                <div class="form-group">
+                    <label>Teslimat Adresi</label>
+                    <textarea class="form-control" asp-for="ShippingAddress" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary mr-2">Siparişi Tamamla</button>
+                <a href="/Order/Index" class="btn btn-light">Vazgeç</a>
+                
+            </form>
+        </div>
+    </div>
+</div>

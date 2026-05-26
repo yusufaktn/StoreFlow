@@ -1,11 +1,33 @@
+@model List<Product>
+
 <div class="col-md-4 grid-margin stretch-card">
-    <div class="card">
+    <div class="card shadow-sm border-0">
         <div class="card-body">
-            <h4 class="card-title">
-                <i class="fas fa-calendar-alt"></i>
-                Takvim
-            </h4>
-            <div id="inline-datepicker-example" class="datepicker"></div>
+
+            <div class="d-flex align-items-center mb-4">
+                <div class="bg-primary text-white rounded p-2 mr-3">
+                    <i class="fas fa-box-open fa-lg"></i>
+                </div>
+                <div>
+                    <h5 class="mb-0 font-weight-bold">Son Eklenen Ürünler</h5>
+                    <small class="text-muted">En yeni 5 kayıt</small>
+                </div>
+            </div>
+
+            <ul class="list-group list-group-flush">
+                @foreach(var i in Model)
+                {
+                    <li class="list-group-item px-0 d-flex justify-content-between align-items-center border-top-0">
+                        <span>@i.ProductName</span>
+                        <span class="text-primary font-weight-bold">@i.ProductPrice.ToString("N2") TL</span>
+                    </li>
+                }
+            </ul>
+
+            <div class="mt-3 text-center">
+                <a href="/Product/Index" class="btn btn-outline-primary btn-sm btn-block">Tüm Ürünleri Yönet</a>
+            </div>
+
         </div>
     </div>
 </div>

@@ -2,19 +2,18 @@
 @using StoreFlow.Entity.Enum
 
 <div class="col-md-5 grid-margin stretch-card">
-    <div class="card">
+    <div class="card shadow-sm border-0">
         <div class="card-body">
             <h4 class="card-title">
-                <i class="fas fa-rocket"></i>
-                Projeler
+                <i class="fas fa-project-diagram mr-2 text-primary"></i>
+                Aktif Projeler
             </h4>
             <div class="table-responsive">
-                <table class="table">
+                <table class="table table-borderless">
                     <thead>
                         <tr>
-                            <th>Atanmış Kişi</th>
-                            <th>Proje Adı</th>
-                            <th>Öncelik</th>
+                            <th class="pl-0">Proje / Sorumlu</th>
+                            <th class="text-right pr-0">Öncelik</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,10 +32,12 @@
                                 _ => "Düşük"
                             };
                             <tr>
-                                <td>@project.AssignedPerson</td>
-                                <td>@project.ProjectName</td>
-                                <td>
-                                    <label class="badge @badgeClass badge-pill">@priorityText</label>
+                                <td class="pl-0 py-3">
+                                    <h6 class="font-weight-bold mb-1">@project.ProjectName</h6>
+                                    <p class="text-muted small mb-0">@project.AssignedPerson</p>
+                                </td>
+                                <td class="text-right pr-0 py-3">
+                                    <label class="badge @badgeClass badge-pill px-3">@priorityText</label>
                                 </td>
                             </tr>
                         }

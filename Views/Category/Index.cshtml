@@ -1,25 +1,27 @@
 ﻿@model List<Category>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Kategoriler";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
 <div class="col-lg-12 grid-margin stretch-card">
-    <div class="card">
+    <div class="card shadow-sm border-0">
         <div class="card-body">
-            <h4 class="card-title">Kategoriler</h4>
-            <p class="card-description">
-                <code>Kategorilerinizi buradan yönetebilirsiniz.</code>
-            </p>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 class="card-title mb-0">Kategori Yönetimi</h4>
+                <a href="/Category/CreateCategory" class="btn btn-primary btn-sm">
+                    <i class="fas fa-plus mr-2"></i>Yeni Kategori Ekle
+                </a>
+            </div>
+            
             <div class="table-responsive">
-                <table class="table">
-                    <thead>
+                <table class="table table-hover table-striped">
+                    <thead class="bg-light">
                         <tr>
-                            <th>Kategori Id</th>
+                            <th>ID</th>
                             <th>Kategori Adı</th>
                             <th>Durum</th>
-                            <th>Aksiyon</th>
-
+                            <th class="text-right">İşlemler</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,37 +29,30 @@
                         {
                             <tr>
                                 <td>@i.CategoryId</td>
-                                <td>@i.CategoryName</td>
-                                @if (i.Status == true)
-                                {
-                                    <td>
-                                        <label class="badge badge-outline-success badge-pill">Aktif Kategori</label>
-                                    </td>
-                                }
-                                else
-                                {
-                                    <td>
-                                        <label class="badge badge-outline-danger badge-pill">Pasif Kategori</label>
-                                    </td>
-                                }
-
+                                <td class="font-weight-bold">@i.CategoryName</td>
                                 <td>
-                                    <a href="/Category/DeleteCategory/@i.CategoryId" class="btn btn-danger">Sil</a>
-                                    <a href="/Category/UpdateCategory/@i.CategoryId" class="btn btn-inverse-success">Güncelle</a>
-
+                                    @if (i.Status == true)
+                                    {
+                                        <label class="badge badge-success badge-pill">Aktif</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="badge badge-danger badge-pill">Pasif</label>
+                                    }
+                                </td>
+                                <td class="text-right">
+                                    <a href="/Category/UpdateCategory/@i.CategoryId" class="btn btn-outline-success btn-sm mr-1">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="/Category/DeleteCategory/@i.CategoryId" class="btn btn-outline-danger btn-sm" onclick="return confirm('Silmek istediğinize emin misiniz?')">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
                                 </td>
                             </tr>
                         }
-
-
                     </tbody>
                 </table>
             </div>
-           <div class="row">
-                <a href="Category/CreateCategory" class="btn btn-primary">Yeni Kategori Ekle</a>
-           </div>
-            
-
         </div>
     </div>
 </div>

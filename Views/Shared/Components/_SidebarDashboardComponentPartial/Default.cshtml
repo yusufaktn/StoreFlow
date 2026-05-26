@@ -2,55 +2,65 @@
     <ul class="nav">
         <li class="nav-item nav-profile">
             <div class="nav-link">
-                <div class="profile-image">
-                    <img src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/images/faces/face5.jpg" alt="image" />
+                <div class="profile-image text-primary">
+                    <i class="fas fa-user-shield fa-2x"></i>
                 </div>
                 <div class="profile-name">
                     <p class="name">
-                        Hoş geldin Yusuf
+                        Yönetici Paneli
                     </p>
                     <p class="designation">
-                        Süper Yönetici
+                        Sistem Yöneticisi
                     </p>
                 </div>
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" asp-controller ="Dashboard" asp-action="Index">
-                <i class="fa fa-home menu-icon"></i>
+            <a class="nav-link" asp-controller="Dashboard" asp-action="Index">
+                <i class="fa fa-th-large menu-icon"></i>
                 <span class="menu-title">Kontrol Paneli</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" asp-controller="Statistics" asp-action="Index"> @* Asp.net core bizim için doğru adresi oluşturu karışıklık olmaz. *@
-                <i class="fa fa-puzzle-piece menu-icon"></i>
+            <a class="nav-link" asp-controller="Statistics" asp-action="Index">
+                <i class="fa fa-chart-line menu-icon"></i>
                 <span class="menu-title">İstatistikler</span>
             </a>
         </li>
-       @*  <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                <i class="fas fa-chart-pie menu-icon"></i>
-                <span class="menu-title">Grafikler</span>
-                <i class="menu-arrow"></i>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Order" asp-action="Index">
+                <i class="fa fa-shopping-cart menu-icon"></i>
+                <span class="menu-title">Siparişler</span>
             </a>
-            <div class="collapse" id="charts">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/charts/morris.html">Morris</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/charts/flot-chart.html">Flot</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/charts/google-charts.html">Google Grafikler</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/charts/sparkline.html">Sparkline Js</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/charts/c3.html">C3 Grafikler</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/charts/chartist.html">Chartists</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/charts/justGage.html">JustGage</a></li>
-                </ul>
-            </div>
-        </li> *@
-
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Product" asp-action="Index">
+                <i class="fa fa-box menu-icon"></i>
+                <span class="menu-title">Ürünler</span>
+            </a>
+        </li>
         <li class="nav-item">
             <a class="nav-link" asp-controller="Category" asp-action="Index">
-                <i class="far fa-file-alt menu-icon"></i>
+                <i class="fa fa-tags menu-icon"></i>
                 <span class="menu-title">Kategoriler</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fa fa-users menu-icon"></i>
+                <span class="menu-title">Müşteriler</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fa fa-truck menu-icon"></i>
+                <span class="menu-title">Tedarikçiler</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fa fa-cog menu-icon"></i>
+                <span class="menu-title">Ayarlar</span>
             </a>
         </li>
     </ul>

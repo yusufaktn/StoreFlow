@@ -1,0 +1,56 @@
+@model StoreFlow.Entity.Order
+@{
+    ViewData["Title"] = "Sipariş Güncelle";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Siparişi Güncelle</h4>
+            
+            <form class="forms-sample" asp-action="UpdateOrder" method="post">
+                
+                @* Gizli ID alanı *@
+                <input type="hidden" asp-for="OrderId" />
+
+                @* Sipariş Durumu *@
+                <div class="form-group">
+                    <label>Sipariş Durumu</label>
+                    <select class="form-control" asp-for="OrderStatus">
+                        <option value="Pending">Beklemede</option>
+                        <option value="Completed">Tamamlandı</option>
+                        <option value="Cancelled">İptal Edildi</option>
+                        <option value="Shipped">Kargolandı</option>
+                    </select>
+                </div>
+
+                @* Ödeme Yöntemi *@
+                <div class="form-group">
+                    <label>Ödeme Yöntemi</label>
+                    <select class="form-control" asp-for="PaymentMethod">
+                        <option value="Cash">Nakit</option>
+                        <option value="CreditCard">Kredi Kartı</option>
+                        <option value="Transfer">Havale/EFT</option>
+                    </select>
+                </div>
+
+                @* Sipariş Notu *@
+                <div class="form-group">
+                    <label>Sipariş Notu</label>
+                    <textarea class="form-control" asp-for="Notes" rows="3"></textarea>
+                </div>
+
+                @* Teslimat Adresi *@
+                <div class="form-group">
+                    <label>Teslimat Adresi</label>
+                    <textarea class="form-control" asp-for="ShippingAddress" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-success mr-2">Değişiklikleri Kaydet</button>
+                <a href="/Order/Index" class="btn btn-light">Geri Dön</a>
+                
+            </form>
+        </div>
+    </div>
+</div>

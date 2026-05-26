@@ -7,8 +7,6 @@
     <div class="container-scroller">
         @await Component.InvokeAsync("_NavbarDashboardComponenetPartial")
         <div class="container-fluid page-body-wrapper">
-            @await Component.InvokeAsync("_TemaSettingsWrapperDashboardComponentPartial")
-            @await Component.InvokeAsync("_RightSideBarDashboardComponentPartial")
             @await Component.InvokeAsync("_SidebarDashboardComponentPartial")
             <div class="main-panel">
                 <div class="content-wrapper">
@@ -17,8 +15,8 @@
                 <!-- content-wrapper ends -->
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Telif Hakkı © 2018. Tüm hakları saklıdır.</span>
-                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hassas şekilde yapılmış <i class="far fa-heart text-danger"></i></span>
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Telif Hakkı © @DateTime.Now.Year StoreFlow. Tüm hakları saklıdır.</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Güçlü ve Basit Yönetim <i class="fas fa-check-circle text-success"></i></span>
                     </div>
                 </footer>
             </div>

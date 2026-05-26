@@ -1,0 +1,98 @@
+@model List<StoreFlow.Entity.Order>
+@{
+    ViewData["Title"] = "Sipariş Listesi";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Sipariş Listesi</h4>
+            
+            @* Arama Formu *@
+            <form asp-action="Index" asp-controller="Order" method="get" class="d-flex align-items-center gap-2 mb-4">
+                <input type="text" name="searchText" value="@ViewBag.SearchText" class="form-control" placeholder="Müşteri ara..." />
+                <button type="submit" class="btn btn-primary px-4">Ara</button>
+            </form>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Sipariş ID</th>
+                            <th>Müşteri</th>
+                            <th>Toplam Tutar</th>
+                            <th>Ürün Adedi</th>
+                            <th>Durum</th>
+                            <th>Ödeme Tipi</th>
+                            <th>Tarih</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.OrderId</td>
+                                <td>@(item.Customer != null ? item.Customer.FirstName + " " + item.Customer.LastName : "Müşteri Bilgisi Yok")</td>
+                                <td>@item.TotalPrice.ToString("N2") TL</td>
+                                <td>@item.Total_Product_Count</td>
+                                <td>
+                                    @if (item.OrderStatus == StoreFlow.Entity.Enum.OrderStatus.Pending)
+                                    {
+                                        <label class="badge badge-warning">Beklemede</label>
+                                    }
+                                    else if (item.OrderStatus == StoreFlow.Entity.Enum.OrderStatus.Shipped)
+                                    {
+                                        <label class="badge badge-success">Tamamlandı ve Teslim Edildi</label>
+                                    }
+                                    else if (item.OrderStatus == StoreFlow.Entity.Enum.OrderStatus.Cancelled)
+                                    {
+                                        <label class="badge badge-danger">İptal Edildi</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="badge badge-info">@item.OrderStatus</label>
+                                    }
+                                </td>
+                                <td>@item.PaymentMethod</td>
+                                <td>@item.CreatedDate.ToString("dd.MM.yyyy")</td>
+                                <td>
+                                    <a href="/Order/DeleteOrder/@item.OrderId" class="btn btn-danger btn-sm">Sil</a>
+                                    <a href="/Order/UpdateOrder/@item.OrderId" class="btn btn-success btn-sm">Güncelle</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            @* Yeni Sipariş Butonu *@
+            <div class="row mt-3">
+                <div class="col-12">
+                    <a href="/Order/CreateOrder" class="btn btn-primary">Yeni Sipariş Ekle</a>
+                </div>
+            </div>
+
+            @* Sayfalama *@
+            <div class="d-flex justify-content-center align-items-center gap-2 mt-4 flex-wrap">
+                @if (ViewBag.CurrentPage > 1)
+                {
+                    <a asp-action="Index" asp-route-page="@(ViewBag.CurrentPage - 1)" asp-route-searchtext="@ViewBag.SearchText" class="btn btn-outline-dark btn-sm">Geri</a>
+                }
+
+                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    <a asp-action="Index" asp-route-page="@i" asp-route-searchtext="@ViewBag.SearchText" 
+                       class="btn btn-sm @(ViewBag.CurrentPage == i ? "btn-primary" : "btn-outline-primary")">@i</a>
+                }
+
+                @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+                {
+                    <a asp-action="Index" asp-route-page="@(ViewBag.CurrentPage + 1)" asp-route-searchtext="@ViewBag.SearchText" class="btn btn-outline-dark btn-sm">İleri</a>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
